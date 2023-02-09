@@ -19,9 +19,9 @@ const addresses = {
 
     // Sand Verse Contracts. Address is different for each Verse-Layer.
     Proxy__OVM_L1CrossDomainMessenger:
-      '0xa04B03350eE9E3fdd1C2f63fAD5e0CabBb476594',
-    Proxy__OVM_L1StandardBridge: '0x9245e19eB88de2534E03E764FB2a5f194e6d97AD',
-    Proxy__OVM_L1ERC721Bridge: '0x8D736Ad22D106dE9Cf50D0D18D571041a47DD333',
+      '0xD83C05bA26B592ECC8BCe70d785017A99AaaD19b',
+    Proxy__OVM_L1StandardBridge: '0x80d7aAB75B4144AF77E04C1A334e7236Be4771d0',
+    Proxy__OVM_L1ERC721Bridge: '0x4529ed1BE379Cc696860e7E9d2A3D19EB1f39B2a',
   },
   l2: {
     // Verse-Layer pre-deployed Contracts. Same address for all Verse-Layers.

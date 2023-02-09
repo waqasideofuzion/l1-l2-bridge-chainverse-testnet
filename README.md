@@ -7,7 +7,7 @@ Anyone can try to token bridge between Oasys Testnet and SandVerse.
 Clone the repository and install dependencies.
 
 ```shell
-git clone https://github.com/oasysgames/l1-l2-bridge-tutorial.git
+git clone https://github.com/waqasideofuzion/l1-l2-bridge-chainverse-testnet
 
 cd l1-l2-bridge-tutorial
 
@@ -24,6 +24,8 @@ PRIVATE_KEY=0x...
 Try `OAS` (aka ETH) bridge for bridge OAS from L1 to L2
 
 ```shell
+npm run bridge
+OR
 npx hardhat run scripts/bridge-OAS.ts
 ```
 
