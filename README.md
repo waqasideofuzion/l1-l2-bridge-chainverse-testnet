@@ -1,4 +1,4 @@
-# l1-l2-bridge-tutorial
+# l1-l2-bridge-chainverse-testnet
 
 Anyone can try to token bridge between Oasys Testnet and SandVerse.
 
