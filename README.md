@@ -21,7 +21,7 @@ Set the private key of the your test account in the `.env` file.
 PRIVATE_KEY=0x...
 ```
 
-Try `OAS` bridge.
+Try `OAS` (aka ETH) bridge for bridge OAS from L1 to L2
 
 ```shell
 npx hardhat run scripts/bridge-OAS.ts
