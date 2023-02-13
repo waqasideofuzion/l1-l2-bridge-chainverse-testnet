@@ -18,10 +18,15 @@ const addresses = {
     L1StandardERC721Factory: '0x5200000000000000000000000000000000000005',
 
     // Sand Verse Contracts. Address is different for each Verse-Layer.
+    // Proxy__OVM_L1CrossDomainMessenger:
+    //   '0xD83C05bA26B592ECC8BCe70d785017A99AaaD19b',
+    // Proxy__OVM_L1StandardBridge: '0x80d7aAB75B4144AF77E04C1A334e7236Be4771d0',
+    // Proxy__OVM_L1ERC721Bridge: '0x4529ed1BE379Cc696860e7E9d2A3D19EB1f39B2a',
+    // mainnet
     Proxy__OVM_L1CrossDomainMessenger:
-      '0xD83C05bA26B592ECC8BCe70d785017A99AaaD19b',
-    Proxy__OVM_L1StandardBridge: '0x80d7aAB75B4144AF77E04C1A334e7236Be4771d0',
-    Proxy__OVM_L1ERC721Bridge: '0x4529ed1BE379Cc696860e7E9d2A3D19EB1f39B2a',
+      '0x893BeE439cD6a020e93FDBf850A444EF5E2f5A96',
+    Proxy__OVM_L1StandardBridge: '0x24d133df1d72089809945ec9550f72f8415ac780',
+    Proxy__OVM_L1ERC721Bridge: '0x9E8190ddff93e4e23a0663FA06BdCDb0F3e2D73F',
   },
   l2: {
     // Verse-Layer pre-deployed Contracts. Same address for all Verse-Layers.
@@ -59,22 +64,24 @@ const getCrossDomainMessageHashesFromTx = async (
       log.address === messengerAddress &&
       log.topics[0] === sentMessageEventId
     ) {
-      const [sender, message, messageNonce] =
-        hre.ethers.utils.defaultAbiCoder.decode(
-          ['address', 'bytes', 'uint256'],
-          log.data,
-        )
+      const [
+        sender,
+        message,
+        messageNonce,
+      ] = hre.ethers.utils.defaultAbiCoder.decode(
+        ['address', 'bytes', 'uint256'],
+        log.data,
+      )
 
       const [target] = hre.ethers.utils.defaultAbiCoder.decode(
         ['address'],
         log.topics[1],
       )
 
-      const encodedMessage =
-        l2CrossDomainMessengerRelayinterface.encodeFunctionData(
-          'relayMessage',
-          [target, sender, message, messageNonce],
-        )
+      const encodedMessage = l2CrossDomainMessengerRelayinterface.encodeFunctionData(
+        'relayMessage',
+        [target, sender, message, messageNonce],
+      )
 
       msgHashes.push(
         hre.ethers.utils.solidityKeccak256(['bytes'], [encodedMessage]),
